@@ -27,6 +27,7 @@ namespace WebApplication2.Controllers
             ViewBag.LastnameSortParam = sortOrder == "Lastname" ? "lastname_desc" : "Lastname";
             ViewBag.EmailSortParam = sortOrder == "Email" ? "email_desc" : "Email";
             ViewBag.PhoneSortParam = sortOrder == "Phone" ? "phone_desc" : "Phone";
+            ViewBag.HireDateParam = sortOrder == "HireDate" ? "hire_date" : "HireDate";
 
             if (!String.IsNullOrEmpty(searchString))
             {
@@ -84,6 +85,14 @@ namespace WebApplication2.Controllers
                     break;
                 case "phone_desc":
                     employeeList = employeeList.OrderByDescending(s => s.Phone).ToList();
+                    ViewBag.CurrentSort = sortOrder;
+                    break;
+                case "HireDate":
+                    employeeList = employeeList.OrderBy(s => s.HireDate).ToList();
+                    ViewBag.CurrentSort = sortOrder;
+                    break;
+                case "hire_date":
+                    employeeList = employeeList.OrderByDescending(s => s.HireDate).ToList();
                     ViewBag.CurrentSort = sortOrder;
                     break;
 

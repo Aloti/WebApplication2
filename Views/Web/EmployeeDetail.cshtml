@@ -41,7 +41,41 @@
                 @Html.EditorFor(m => m.Phone)
             </div>
         </div>
-        <div class="col-md-5 col-md-offset-3">
+        <div class="col-md-4">
+            <div class="col-md-4">
+                <label class="titleField" for="Fecha">Fecha</label>
+            </div>
+            <div class="col-md-1">
+                @Html.EditorFor(m => m.HireDate)
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="col-md-4">
+                <label class="titleField" for="ManagerId">Manager Id</label>
+            </div>
+            <div class="col-md-1">
+                @Html.EditorFor(m => m.ManagerId)
+            </div>
+        </div>
+    </div>
+    <div class="formLine">
+        <div class="col-md-6">
+            @if (@Model.Picture != null)
+            {
+                <div class="col-md-4">
+                    <a><img src="@Model.Picture" style="width:10em;height:10em" /></a>
+                </div>
+            }
+            <div class="col-md-4">
+                <label class="titleField" for="Picutre">Fotografía</label>
+            </div>
+            <div class="col-md-1">
+                @Html.EditorFor(m => m.Picture)
+            </div>
+        </div>
+    </div>
+    <div class="formLine">
+        <div class="col-md-5 col-md-offset-1">
             <div class="controlButtons">
                 <div class="inner">
                     @Html.ActionLink("Eliminar", "RemoveEmployee", "Web", new { Id = Model.Id }, new { @class = "btn btn-danger deleteButton" })

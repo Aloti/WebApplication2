@@ -38,6 +38,8 @@
             <th scope="col">@Html.ActionLink("Lastname", "Index", new { sortOrder = ViewBag.LastnameSortParam, currentFilter = ViewBag.CurrentFilter })</th>
             <th scope="col">@Html.ActionLink("Phone", "Index", new { sortOrder = ViewBag.PhoneParam, currentFilter = ViewBag.CurrentFilter })</th>
             <th scope="col">@Html.ActionLink("Email", "Index", new { sortOrder = ViewBag.EmailParam, currentFilter = ViewBag.CurrentFilter })</th>
+            <th scope="col">@Html.ActionLink("Hire Date", "Index", new { sortOrder = ViewBag.HireDateParam, currentFilter = ViewBag.CurrentFilter })</th>
+            <th scope="col">@Html.ActionLink("ManagerId", "Index", new { sortOrder = ViewBag.ManagerIdParam, currentFilter = ViewBag.CurrentFilter })</th>
             <th>Opciones</th>
         </tr>
     </thead>
@@ -49,6 +51,8 @@
                 <td>@employee.Lastname</td>
                 <td>@employee.Phone</td>
                 <td>@employee.Email</td>
+                <td>@employee.HireDate</td>
+                <td>@employee.ManagerId</td>
                 <td><img onclick="location.href = '@(Url.Action("EmployeeDetail", "Web", new { Id = employee.Id}))'" class="option_icon" src="~/images/edit_icon.png" alt="Edit" /></td>
             </tr>
         }

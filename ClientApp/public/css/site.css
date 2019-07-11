@@ -51,6 +51,7 @@ body {
 #topBarTitle {
     color: #2DCC72;
     margin: 8% 0% 0% 0%;
+    padding-bottom:0.5em;
 }
 
 #topBarUL {
