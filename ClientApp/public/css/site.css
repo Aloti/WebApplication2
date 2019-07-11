@@ -1,0 +1,158 @@
+﻿
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
+for details on configuring this project to bundle and minify static web assets. */
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    font-family: 'Arimo', sans-serif;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}
+
+/* QR code generator */
+#qrCode {
+    margin: 15px;
+}
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
+}
+
+
+.formLine {
+    padding: 4% 0%;
+    margin: 2% 0%
+}
+
+#topBar {
+    background-color: #001C0C;
+}
+
+#topBarTitle {
+    color: #2DCC72;
+    margin: 8% 0% 0% 0%;
+}
+
+#topBarUL {
+    margin-left: 3%;
+}
+
+#topBarUL li {
+    border-radius: 15px 15px 0px 0px;
+}
+
+#topBarUL li :hover {
+    background-color: #60F3A0;
+    border-radius: 15px 15px 0px 0px;
+}
+
+#topBarUL li :active {
+    background-color: #2DCC72;
+    border-radius: 15px 15px 0px 0px;
+}
+
+#topBarUL li.selected {
+    background-color: #2DCC72;
+}
+
+.pageTitle {
+    margin: 2% 0%
+}
+
+.editableField {
+    padding-left: 11px;
+    padding-right: 5px;
+    padding-top: 4px;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 20px;
+    border-color: #A9A9A9;
+    color: #696969;
+}
+
+.uneditableField{
+    background-color:lightgray;
+}
+
+.titleField {
+    font-family: Arimo;
+    font-weight: 700;
+}
+
+.controlButtons {
+    padding: 0% 3%;
+    margin-right: 12%;
+    width:100%;
+    text-align: center;
+}
+
+.lightButton {
+    border-radius: 5px;
+    border-color: #2DCC72;
+    color: #2DCC72;
+    background-color: #FFFFFF;
+}
+
+.deleteButton {
+    border-radius: 5px;
+    color: #FFFFFF;
+}
+
+.darkButton {
+    border-radius: 5px;
+    border-color: #2DCC72;
+    color: #FFFFFF;
+    background-color: #2DCC72;
+}
+
+.inner {
+    display: inline-block;
+}
+
+#createButton {
+    float: right;
+}
+
+.logout {
+    position: absolute;
+    transform: translateY(0.75em);
+    right: 0%;
+}
+
+.subfooter {
+    height:50px;
+}
+
+#downloadButton {
+    float:right;
+}
+
+#paginationDiv {
+    float:left;
+}
+
+.option_icon {
+    height: 17px;
+    width: 17px;
+    cursor: pointer;
+}

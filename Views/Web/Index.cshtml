@@ -1,0 +1,67 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+@model IPagedList<WebApplication2.Models.Employee> 
+@using X.PagedList;
+@using X.PagedList.Mvc.Core;
+<h2 class="pageTitle">Empleados</h2>
+
+@using (Html.BeginForm())
+{
+    <p>
+        Filtrar: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { @class = "editableField" })
+        <button type="submit" class="btn">
+            <i class="glyphicon glyphicon-search"></i>
+        </button>
+        <input class="btn btn-success darkButton" id="createButton" type="button" value="+" onclick="location.href = '@(Url.Action("EmployeeDetail", "Web"))'" />
+
+    </p>
+
+}
+@using (Html.BeginForm("Upload", "Web", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+
+    <div class="form-group">
+        <input type="file" id="dataFile" name="upload" />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Upload" class="btn btn-default" />
+    </div>
+
+}
+<table class="table table-striped table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">@Html.ActionLink("Name", "Index", new { sortOrder = ViewBag.NameSortParam, currentFilter = ViewBag.CurrentFilter })</th>
+            <th scope="col">@Html.ActionLink("Lastname", "Index", new { sortOrder = ViewBag.LastnameSortParam, currentFilter = ViewBag.CurrentFilter })</th>
+            <th scope="col">@Html.ActionLink("Phone", "Index", new { sortOrder = ViewBag.PhoneParam, currentFilter = ViewBag.CurrentFilter })</th>
+            <th scope="col">@Html.ActionLink("Email", "Index", new { sortOrder = ViewBag.EmailParam, currentFilter = ViewBag.CurrentFilter })</th>
+            <th>Opciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var employee in Model)
+        {
+            <tr>
+                <td>@employee.Name</td>
+                <td>@employee.Lastname</td>
+                <td>@employee.Phone</td>
+                <td>@employee.Email</td>
+                <td><img onclick="location.href = '@(Url.Action("EmployeeDetail", "Web", new { Id = employee.Id}))'" class="option_icon" src="~/images/edit_icon.png" alt="Edit" /></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+<div class="subfooter">
+    <div id="paginationDiv">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new
+        {
+            page,
+            SearchString = ViewBag.CurrentFilter,
+            currentSort = ViewBag.CurrentSort
+        }))
+    </div>
+</div>

@@ -24,6 +24,16 @@ namespace WebApplication2
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll", p =>
+                {
+                    p.AllowAnyOrigin()
+                    .AllowAnyHeader()
+                    .AllowAnyMethod();
+                });
+            });
+
             services.Configure<EmployeesDatabaseSettings>(
                 Configuration.GetSection(nameof(EmployeesDatabaseSettings)));
 
@@ -34,6 +44,8 @@ namespace WebApplication2
 
             services.AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddCors();
 
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
@@ -68,12 +80,12 @@ namespace WebApplication2
 
             app.UseSpa(spa =>
             {
-                spa.Options.SourcePath = "ClientApp";
+               spa.Options.SourcePath = "ClientApp";
 
                 if (env.IsDevelopment())
-                {
+               {
                     spa.UseReactDevelopmentServer(npmScript: "start");
-                }
+               }
             });
         }
     }

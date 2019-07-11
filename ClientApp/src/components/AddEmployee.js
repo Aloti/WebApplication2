@@ -3,15 +3,16 @@ import PropTypes from 'prop-types';
 
 export class AddEmployee extends Component {
     state = {
-        name: '',
-        lastname: '',
-        email: '',
-        phone: ''
+        Name: '',
+        Lastname: '',
+        Email: '',
+        Phone: ''
     }
 
     onSubmit = (e) => {
         e.preventDefault();
         this.props.addEmployee(this.state);
+        console.log(this.state)
         this.setState({
             Name: '',
             Lastname: '',
@@ -28,34 +29,34 @@ export class AddEmployee extends Component {
                 <input
                     type="text"
                     name="Name"
-                    style={{ flex: '10', padding: '5px' }}
                     placeholder="Name ..."
-                    value={this.state.title}
+                    value={this.state.name}
                     onChange={this.onChange}
+                    style={{ flex: '2' }}
                 />
                 <input
                     type="text"
                     name="Lastname"
-                    style={{ flex: '10', padding: '5px' }}
                     placeholder="Lastname ..."
-                    value={this.state.title}
+                    value={this.state.lastname}
                     onChange={this.onChange}
+                    style={{ flex: '2' }}
                 />
                 <input
                     type="text"
                     name="Email"
-                    style={{ flex: '10', padding: '5px' }}
                     placeholder="email@email.com ..."
-                    value={this.state.title}
+                    value={this.state.email}
                     onChange={this.onChange}
+                    style={{ flex: '2' }}
                 />
                 <input
                     type="text"
                     name="Phone"
-                    style={{ flex: '10', padding: '5px' }}
                     placeholder="89878685 ..."
-                    value={this.state.title}
+                    value={this.state.phone}
                     onChange={this.onChange}
+                    style={{ flex: '2' }}
                 />
                 <input
                     type="submit"

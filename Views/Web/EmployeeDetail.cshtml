@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewData["Title"] = "Employee Detail";
+}
+@model WebApplication2.Models.Employee
+
+<form asp-action="EmployeeDetail" asp-route-Id="@Model.Id" method="post">
+    <h2 class="pageTitle">Empleado</h2>
+    <div class="formLine">
+        <div class="col-md-4">
+            <div class="col-md-4">
+                <label class="titleField" for="Name">Nombre</label>
+            </div>
+            <div class="col-md-1">
+                @Html.EditorFor(m => m.Name)
+            </div>
+        </div>
+        <div class="col-md-4 ">
+            <div class="col-md-4">
+                <label class="titleField" for="Lastname">Apellido</label>
+            </div>
+            <div class="col-md-1">
+                @Html.EditorFor(m => m.Lastname)
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="col-md-4">
+                <label class="titleField" for="Email">Email</label>
+            </div>
+            <div class="col-md-1">
+                @Html.EditorFor(m => m.Email)
+            </div>
+        </div>
+    </div>
+    <div class="formLine">
+        <div class="col-md-4">
+            <div class="col-md-4">
+                <label class="titleField" for="Phone">Número</label>
+            </div>
+            <div class="col-md-1">
+                @Html.EditorFor(m => m.Phone)
+            </div>
+        </div>
+        <div class="col-md-5 col-md-offset-3">
+            <div class="controlButtons">
+                <div class="inner">
+                    @Html.ActionLink("Eliminar", "RemoveEmployee", "Web", new { Id = Model.Id }, new { @class = "btn btn-danger deleteButton" })
+
+                </div>
+                <div class="inner">
+                    @Html.ActionLink("Cancelar", "Index", "Web", null, new { @class = "btn btn-light lightButton" })
+                </div>
+                <div class="inner">
+                    <input class="btn btn-success darkButton" type="submit" value="Guardar" name="" />
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<br /><br />
